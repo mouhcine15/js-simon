@@ -1,12 +1,12 @@
-// generare 5 numeri casuali
-// stampare i numeri
-// far partire un timer di 30 secondi
-// far inserire i numeri all'utente
-
+// dichiaro variabili
 let arrRandom = [];
 let numRandom;
 let numeri = document.getElementById("numeri");
+let verifica;
+let punteggio = document.getElementById("punteggio");
+let arrUtente = [];
 
+// ciclo per creare 5 numri casuali
 for (let i = 0; i < 5; i++) {
     
     numRandom = (Math.floor(Math.random() * 10)  +1);
@@ -37,8 +37,18 @@ const counting = setInterval(
                 divAttesa.innerHTML = attesa;
                 if (attesa === 0) {
                     numeri.style.display = 'none';
+                    timer2.style.display = 'none';
                     clearInterval(counting2);
-                    
+                    for (let i = 0; i < 10; i++) {
+                        verifica = parseInt(prompt("indovina i numeri"));
+                        let presenza = arrRandom.includes(verifica);
+                        console.log(presenza);
+                        if (presenza == true) {
+                            console.log("questo numero è giusto " + verifica);
+                        } else {
+                            console.log("questo numero è sbagliato " + verifica);
+                        }
+                    }
 
                 } else {
                     attesa--;
